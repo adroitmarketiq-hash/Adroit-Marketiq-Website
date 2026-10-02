@@ -1,0 +1,64 @@
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="index.html" aria-label="Adroit Marketiq, home">
+      <img class="logo logo--on-light" src="assets/images/brand/logo.webp" width="475" height="140" alt="Adroit Marketiq">
+      <img class="logo logo--on-dark" src="assets/images/brand/logo-reversed.webp" width="475" height="140" alt="" aria-hidden="true">
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" data-nav="home" href="index.html">Home</a></li>
+        <li><a class="site-nav__link" data-nav="about" href="about.html">About</a></li>
+        <li><a class="site-nav__link" data-nav="services" href="services.html">Services</a></li>
+        <li><a class="site-nav__link" data-nav="process" href="process.html">Process</a></li>
+        <li><a class="site-nav__link" data-nav="industries" href="industries.html">Industries</a></li>
+        <li><a class="site-nav__link" data-nav="work" href="work.html">Work</a></li>
+        <li><a class="site-nav__link" data-nav="insights" href="insights.html">Insights</a></li>
+        <li><a class="site-nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--primary btn--compact site-header__cta" href="contact.html#enquiry" data-magnetic>
+      <span class="btn__label">Let's grow</span>
+      <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Full-screen menu (tablet and mobile) -->
+<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden data-menu>
+  <div class="menu__backdrop" aria-hidden="true"></div>
+  <div class="menu__body">
+    <nav aria-label="Menu">
+      <ul class="menu__list">
+        <li><a class="menu__link" data-nav="home" href="index.html"><span>Home</span></a></li>
+        <li><a class="menu__link" data-nav="about" href="about.html"><span>About</span></a></li>
+        <li><a class="menu__link" data-nav="services" href="services.html"><span>Services</span></a></li>
+        <li><a class="menu__link" data-nav="process" href="process.html"><span>Process</span></a></li>
+        <li><a class="menu__link" data-nav="industries" href="industries.html"><span>Industries</span></a></li>
+        <li><a class="menu__link" data-nav="work" href="work.html"><span>Work</span></a></li>
+        <li><a class="menu__link" data-nav="insights" href="insights.html"><span>Insights</span></a></li>
+        <li><a class="menu__link" data-nav="contact" href="contact.html"><span>Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="menu__foot">
+      <a class="btn btn--primary" href="contact.html#enquiry">
+        <span class="btn__label">Let's grow</span>
+        <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <dl class="menu__contact">
+        <div><dt>Email</dt><dd>{{helper.emailHtml}}</dd></div>
+        <div><dt>Phone</dt><dd>{{helper.phoneHtml}}</dd></div>
+      </dl>
+      <ul class="social-list" aria-label="Social profiles">
+          {{helper.socialLinks}}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "adroit-marketiq-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adroit Marketiq website: static pages plus one serverless function that emails form submissions.",
+  "scripts": {
+    "pages": "node build.js",
+    "dev": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

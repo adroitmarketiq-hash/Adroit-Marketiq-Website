@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /php/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /src/
+
+Sitemap: https://www.YOUR-DOMAIN-HERE.com/sitemap.xml

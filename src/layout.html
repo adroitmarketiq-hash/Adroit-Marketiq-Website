@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.description}}">
+  <meta name="robots" content="{{page.robots}}">
+  <meta name="author" content="{{site.name}}">
+  <meta name="theme-color" content="#101C35">
+
+  <!-- Canonical: set "domain" in src/site.config.json before launch -->
+  <link rel="canonical" href="{{page.url}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta property="og:url" content="{{page.url}}">
+  <meta property="og:image" content="{{site.domain}}/assets/images/brand/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{page.title}}">
+  <meta name="twitter:description" content="{{page.description}}">
+  <meta name="twitter:image" content="{{site.domain}}/assets/images/brand/og-image.jpg">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+  <link rel="stylesheet" href="assets/css/visuals.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/inner.css">
+
+  <!-- Decides before first paint whether to show the brand loader (first visit this session)
+       or the page-transition cover (arriving from another page of the site). -->
+  <script>
+    (function (root) {
+      root.classList.remove('no-js');
+      root.classList.add('js');
+      try {
+        if (sessionStorage.getItem('am:transition')) {
+          root.classList.add('is-arriving');
+          sessionStorage.removeItem('am:transition');
+        } else if (!sessionStorage.getItem('am:seen')) {
+          root.classList.add('is-loading');
+        }
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{site.domain}}/#organization",
+        "name": "{{site.name}}",
+        "url": "{{site.domain}}/",
+        "logo": "{{site.domain}}/assets/images/brand/icon-512.png",
+        "slogan": "{{site.tagline}}",
+        "description": "Adroit Marketiq is a digital marketing company dedicated to helping businesses establish, strengthen and expand their digital presence through strategy, creative campaigns and digital innovation.",
+        "founder": { "@type": "Person", "name": "{{site.founder}}" },
+        "sameAs": {{helper.sameAs}}
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{site.domain}}/#website",
+        "url": "{{site.domain}}/",
+        "name": "{{site.name}}",
+        "publisher": { "@id": "{{site.domain}}/#organization" }
+      }
+    ]
+  }
+  </script>
+  {{schema}}
+</head>
+<body class="page page--{{page.nav}} {{page.bodyClass}}" data-header="{{page.header}}" data-page-title="{{page.label}}" id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {{> icons}}
+  {{> chrome}}
+  {{> header}}
+
+  <main id="main" tabindex="-1">
+{{content}}
+  </main>
+
+  {{> footer}}
+  {{> floating}}
+
+  <!-- Libraries (CDN). GSAP + ScrollTrigger + SplitText for motion, Lenis for smooth scrolling. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/sections.js"></script>
+  {{page.scripts}}
+</body>
+</html>

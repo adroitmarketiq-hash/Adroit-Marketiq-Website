@@ -1,0 +1,11 @@
+<!-- Floating actions. The WhatsApp link is built from "whatsapp" in src/site.config.json
+     (currently WHATSAPP_NUMBER_HERE); until a real number is set it leads to the enquiry form. -->
+<div class="floating" data-floating>
+  <a class="floating__top" href="#top" aria-label="Back to top" data-back-to-top>
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </a>
+  <a class="floating__whatsapp" href="{{helper.whatsappHref}}" {{helper.whatsappAttrs}} aria-label="{{helper.whatsappLabel}}">
+    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+    <span class="floating__whatsapp-text">WhatsApp</span>
+  </a>
+</div>

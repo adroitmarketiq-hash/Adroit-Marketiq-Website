@@ -1,0 +1,86 @@
+<!--
+{
+  "title": "Portfolio & Case Studies | Adroit Marketiq",
+  "description": "How Adroit Marketiq approaches digital challenges with strategic thinking, creative design and purposeful marketing. Verified case studies only.",
+  "nav": "work",
+  "label": "Work",
+  "header": "dark",
+  "scripts": ["assets/js/scene.js"]
+}
+-->
+
+    <!-- ============ HERO ============ -->
+    <section class="page-hero theme-dark">
+      <div class="page-hero__scene" data-scene="field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap page-hero__inner">
+        <p class="label" data-reveal-label><span class="label__num">01</span>/ Portfolio and case studies</p>
+        <h1 class="h1 page-hero__title" data-reveal="lines">Work we can stand behind.</h1>
+        <p class="lead page-hero__lead" data-reveal="fade">Explore how Adroit Marketiq approaches digital challenges with strategic thinking, creative design and purposeful marketing.</p>
+        <p class="note page-hero__aside">We publish only approved projects with verified outcomes. The first case studies are being prepared.</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 / CATEGORIES ============ -->
+    <section class="section theme-light work-index" id="categories">
+      <div class="wrap">
+        <header class="work-index__head">
+          <p class="label" data-reveal-label><span class="label__num">02</span>/ Categories</p>
+          <h2 class="h2" data-reveal="lines">Six kinds of work, one way of thinking.</h2>
+        </header>
+
+        <div class="filter-bar" data-filter-bar role="group" aria-label="Filter work by category">
+          <button class="filter-bar__button" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-bar__button" type="button" data-filter="social" aria-pressed="false">Social campaigns</button>
+          <button class="filter-bar__button" type="button" data-filter="brand" aria-pressed="false">Brand identity</button>
+          <button class="filter-bar__button" type="button" data-filter="web" aria-pressed="false">Websites</button>
+          <button class="filter-bar__button" type="button" data-filter="ads" aria-pressed="false">Paid ads</button>
+          <button class="filter-bar__button" type="button" data-filter="seo" aria-pressed="false">SEO and content</button>
+          <button class="filter-bar__button" type="button" data-filter="video" aria-pressed="false">Video production</button>
+        </div>
+        <p class="visually-hidden" role="status" aria-live="polite" data-filter-status></p>
+
+        <!-- Replace each plate with a real, approved project. See src/partials/plate.html -->
+        <div class="work-grid">
+          {{> plate category="Social campaigns" icon="social" tone="sky" filter="social"}}
+          {{> plate category="Brand identity" icon="brand" tone="navy" filter="brand"}}
+          {{> plate category="Websites" icon="web" tone="blue" filter="web"}}
+          {{> plate category="Paid ads" icon="ads" tone="paper" filter="ads"}}
+          {{> plate category="SEO and content" icon="seo" tone="navy" filter="seo"}}
+          {{> plate category="Video production" icon="content" tone="blue" filter="video"}}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 / CASE STUDY ANATOMY ============ -->
+    <section class="section theme-white anatomy" id="anatomy">
+      <div class="wrap anatomy__grid">
+        <div class="anatomy__intro">
+          <p class="label" data-reveal-label><span class="label__num">03</span>/ How we tell it</p>
+          <h2 class="h2" data-reveal="lines">Every case study answers the same six questions.</h2>
+          <p class="lead" data-reveal="fade">So you can compare projects like for like, and see exactly what was asked, what was done and what changed.</p>
+
+          <!-- A blank case-study sheet: the template each project will fill -->
+          <div class="sheet" aria-hidden="true">
+            <div class="sheet__top"><span></span><span></span></div>
+            <div class="sheet__title"></div>
+            <div class="sheet__cols">
+              <div><i></i><i></i><i></i></div>
+              <div><i></i><i></i><i></i></div>
+            </div>
+            <div class="sheet__media"><span></span><span></span><span></span></div>
+            <div class="sheet__result"><b></b><b></b><b></b></div>
+          </div>
+        </div>
+
+        <dl class="anatomy__list">
+          <div class="anatomy__item"><dt>Client category</dt><dd>The industry and type of business, so you can find work close to your own.</dd></div>
+          <div class="anatomy__item"><dt>Objective</dt><dd>What the campaign or project was meant to achieve.</dd></div>
+          <div class="anatomy__item"><dt>Challenge</dt><dd>What stood in the way: the market, the competition or the starting point.</dd></div>
+          <div class="anatomy__item"><dt>Services provided</dt><dd>Which of our six service areas were involved, and how they worked together.</dd></div>
+          <div class="anatomy__item"><dt>Selected visuals</dt><dd>The creative itself: identity, pages, posts, ads or film.</dd></div>
+          <div class="anatomy__item"><dt>Verified outcomes</dt><dd>Results confirmed with the client. If a number is not verified, it is not published.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    {{> cta-band num="04" title="Have a project in mind? Let's collaborate." text="Yours could be one of the first stories told here. Tell us what you are working on." cta="Let's collaborate" href="contact.html#enquiry"}}

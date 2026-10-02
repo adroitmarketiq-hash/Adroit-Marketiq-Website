@@ -1,0 +1,20 @@
+# Not part of the public site on Vercel.
+
+# Page sources and tooling: the built .html files in the project root are what gets served.
+src/
+build.js
+dev-server.js
+README.md
+.claude/
+
+# PHP version of the form handler (for PHP hosts only) and its libraries
+php/
+vendor/
+storage/
+composer.json
+composer.lock
+.htaccess
+
+# Local secrets
+.env
+.env.local

@@ -1,0 +1,111 @@
+<!--
+{
+  "title": "Blog & Insights | Digital Marketing Ideas | Adroit Marketiq",
+  "description": "Practical digital marketing insights from Adroit Marketiq: SEO strategy, social growth, AI in marketing, and Google Ads versus Meta Ads.",
+  "nav": "insights",
+  "label": "Insights",
+  "header": "light",
+  "scripts": ["assets/js/forms.js"]
+}
+-->
+
+    <!-- ============ HERO ============ -->
+    <section class="page-hero theme-light insights-hero">
+      <div class="wrap page-hero__inner">
+        <p class="label" data-reveal-label><span class="label__num">01</span>/ Blog and insights</p>
+        <h1 class="h1 page-hero__title" data-reveal="lines">Ideas you can put to work this quarter.</h1>
+        <p class="lead page-hero__lead" data-reveal="fade">Stay informed with practical digital marketing insights, emerging trends and creative ideas to strengthen your online presence.</p>
+        <p class="note page-hero__aside">Our first four articles are being written. The summaries below show what each will cover.</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 / ARTICLES ============ -->
+    <section class="section section--tight theme-light articles" id="articles">
+      <div class="wrap">
+        <p class="label articles__label" data-reveal-label><span class="label__num">02</span>/ First issue</p>
+
+        <article class="article article--feature" id="seo-strategies">
+          <figure class="article__media" data-reveal="clip">
+            <img src="assets/images/blog/seo-strategy.jpg" srcset="assets/images/blog/seo-strategy-800.jpg 800w, assets/images/blog/seo-strategy.jpg 1600w" sizes="(min-width: 1024px) 60vw, 100vw" width="1600" height="1000" alt="Faceted blue glass architecture seen from below" loading="lazy" decoding="async" data-parallax="0.1">
+          </figure>
+          <div class="article__text">
+            <p class="insight__topic">SEO strategy</p>
+            <h2 class="h2 article__title">10 Essential SEO Strategies for Growing Businesses</h2>
+            <p class="lead">Practical ways to improve search visibility.</p>
+            <p class="article__status">Full article publishing soon</p>
+          </div>
+        </article>
+
+        <div class="articles__list">
+          <article class="article" id="social-presence">
+            <figure class="article__media" data-reveal="clip">
+              <img src="assets/images/blog/social-presence-800.jpg" width="800" height="500" alt="A hand holding a phone, framing a photograph of a lit building at night" loading="lazy" decoding="async">
+            </figure>
+            <div class="article__text">
+              <p class="insight__topic">Social growth</p>
+              <h2 class="h3 article__title">How to Build a Strong Social Media Presence</h2>
+              <p class="body">Consistent branding and audience engagement.</p>
+              <p class="article__status">Full article publishing soon</p>
+            </div>
+          </article>
+
+          <article class="article" id="ai-in-marketing">
+            <figure class="article__media" data-reveal="clip">
+              <img src="assets/images/blog/ai-in-marketing-800.jpg" width="800" height="500" alt="Glowing blue points forming a wave pattern" loading="lazy" decoding="async">
+            </figure>
+            <div class="article__text">
+              <p class="insight__topic">AI in marketing</p>
+              <h2 class="h3 article__title">AI in Digital Marketing</h2>
+              <p class="body">Opportunities in content creation, research and workflow efficiency.</p>
+              <p class="article__status">Full article publishing soon</p>
+            </div>
+          </article>
+
+          <article class="article" id="google-vs-meta">
+            <figure class="article__media" data-reveal="clip">
+              <img src="assets/images/blog/google-vs-meta-800.jpg" width="800" height="500" alt="A city street at night, lit by illuminated signs" loading="lazy" decoding="async">
+            </figure>
+            <div class="article__text">
+              <p class="insight__topic">Advertising</p>
+              <h2 class="h3 article__title">Google Ads vs. Meta Ads</h2>
+              <p class="body">Understand search intent and social discovery.</p>
+              <p class="article__status">Full article publishing soon</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 / SUBSCRIBE ============ -->
+    <section class="section theme-dark subscribe" id="subscribe">
+      <div class="wrap subscribe__grid">
+        <div class="subscribe__text">
+          <p class="label" data-reveal-label><span class="label__num">03</span>/ Subscribe for updates</p>
+          <h2 class="h2" data-reveal="lines">Be the first to read each article.</h2>
+          <p class="lead" data-reveal="fade">Leave your email and we will let you know when a new insight is published. No more than that.</p>
+        </div>
+
+        <form class="subscribe__form" action="{{site.formEndpoint}}" method="post" novalidate data-form="subscribe">
+          <input type="hidden" name="form_type" value="subscribe">
+          <input type="hidden" name="elapsed_ms" value="">
+          <div class="field field--trap" aria-hidden="true">
+            <label for="sub-company">Company website</label>
+            <input id="sub-company" type="text" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field" data-field>
+            <label class="field__label" for="sub-email">Email address</label>
+            <input class="field__control" id="sub-email" type="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="sub-email-error">
+            <p class="field__error" id="sub-email-error" aria-live="polite"></p>
+          </div>
+
+          <button class="btn btn--primary" type="submit" data-submit>
+            <span class="btn__label">Subscribe</span>
+            <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </form>
+      </div>
+    </section>
+
+    {{> cta-band num="04" title="Rather talk it through than read about it?" text="Bring your question. We are happy to explain how any of these ideas would apply to your business." cta="Talk to us" href="contact.html#enquiry"}}

@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Adroit Marketiq — design tokens
+   Palette and type come from the brand's website design guide (PDF, page 10).
+   ========================================================================== */
+
+:root {
+  /* Brand palette */
+  --navy: #101C35;          /* Midnight Navy — primary */
+  --navy-deep: #0B1327;     /* dark-section gradient end */
+  --blue: #1673E6;          /* Electric Blue — primary action */
+  --sky: #56C5F5;           /* Sky Blue — secondary accent */
+  --paper: #F5F7FB;         /* Off White — background */
+  --white: #FFFFFF;
+  --amber: #F2B01E;         /* from the logo's arrow; micro-details only */
+
+  /* Ink on light */
+  --ink: var(--navy);
+  --ink-2: #3F4C68;
+  --ink-3: #5C6883;
+  --rule: rgba(16, 28, 53, 0.14);
+  --rule-strong: rgba(16, 28, 53, 0.32);
+
+  /* Ink on dark */
+  --d-ink: #F5F7FB;
+  --d-ink-2: #BAC5DC;
+  --d-ink-3: #8E9CBA;
+  --d-rule: rgba(245, 247, 251, 0.14);
+  --d-rule-strong: rgba(245, 247, 251, 0.34);
+
+  /* Type */
+  --font-display: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --fs-hero: clamp(2.7rem, 7.6vw, 8rem);
+  --fs-h1: clamp(2.5rem, 5.8vw, 5.75rem);
+  --fs-h2: clamp(2rem, 4.3vw, 4.25rem);
+  --fs-h3: clamp(1.4rem, 2.1vw, 2rem);
+  --fs-h4: clamp(1.125rem, 1.4vw, 1.3rem);
+  --fs-lead: clamp(1.075rem, 1.35vw, 1.35rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  /* Space */
+  --gutter: clamp(1.25rem, 4.2vw, 4.5rem);
+  --section: clamp(5rem, 11vw, 11.5rem);
+  --maxw: 1560px;
+  --header-h: 92px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur: 0.5s;
+  --dur-slow: 0.9s;
+
+  /* Layers */
+  --z-header: 75;
+  --z-menu: 70;
+  --z-floating: 55;
+  --z-progress: 80;
+  --z-cover: 90;
+  --z-cursor: 100;
+}
+
+/* Section themes: components read these semantic values, never the raw palette. */
+:root,
+.theme-light,
+.theme-white {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-2: var(--ink-2);
+  --fg-3: var(--ink-3);
+  --line: var(--rule);
+  --line-strong: var(--rule-strong);
+  --accent: var(--blue);
+  --accent-soft: var(--sky);
+  --surface: var(--white);
+}
+
+.theme-white {
+  --bg: var(--white);
+  --surface: var(--paper);
+}
+
+.theme-dark {
+  --bg: var(--navy);
+  --fg: var(--d-ink);
+  --fg-2: var(--d-ink-2);
+  --fg-3: var(--d-ink-3);
+  --line: var(--d-rule);
+  --line-strong: var(--d-rule-strong);
+  --accent: var(--sky);
+  --accent-soft: var(--blue);
+  --surface: rgba(245, 247, 251, 0.05);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 72px;
+  }
+}

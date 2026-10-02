@@ -1,0 +1,18 @@
+<!-- Closing call to action. Args: num, title, text, cta, href -->
+<section class="section cta-band theme-blue" id="lets-talk">
+  <svg class="cta-band__line" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+    <path data-draw pathLength="1" d="M-20 566C290 548 540 474 780 330S1210 64 1462 26"/>
+  </svg>
+  <div class="wrap cta-band__inner">
+    <p class="label" data-reveal-label><span class="label__num">{{num}}</span>/ Let's talk</p>
+    <h2 class="cta-band__title" data-reveal="lines">{{title}}</h2>
+    <p class="lead cta-band__text" data-reveal="fade">{{text}}</p>
+    <div class="btn-row cta-band__actions">
+      <a class="btn btn--onblue" href="{{href}}" data-magnetic>
+        <span class="btn__label">{{cta}}</span>
+        <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="cta-link" href="{{helper.whatsappHref}}" {{helper.whatsappAttrs}}>Talk to us on WhatsApp <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>

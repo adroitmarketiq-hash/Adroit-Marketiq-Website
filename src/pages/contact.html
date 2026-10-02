@@ -1,0 +1,130 @@
+<!--
+{
+  "title": "Contact Us | Start Your Project | Adroit Marketiq",
+  "description": "Have a business idea? Let's make it digital. Tell Adroit Marketiq about your goals and explore the right digital strategy for your brand.",
+  "nav": "contact",
+  "label": "Contact",
+  "header": "dark",
+  "scripts": ["assets/js/scene.js", "assets/js/forms.js"]
+}
+-->
+
+    <!-- ============ HERO + ENQUIRY FORM ============ -->
+    <section class="contact theme-dark">
+      <div class="page-hero__scene" data-scene="field" aria-hidden="true"><canvas></canvas></div>
+
+      <div class="wrap contact__grid">
+        <div class="contact__intro">
+          <p class="label" data-reveal-label><span class="label__num">01</span>/ Let's connect</p>
+          <h1 class="h1 contact__title" data-reveal="lines">Let's build something extraordinary.</h1>
+          <p class="contact__sub" data-reveal="fade">Have a business idea? Let's make it digital.</p>
+          <p class="lead" data-reveal="fade">Whether you need a brand launch, advertising campaign or a stronger online presence, tell us about your goals and let's explore the right digital strategy.</p>
+
+          <dl class="contact__details">
+            <div>
+              <dt><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</dt>
+              <dd>{{helper.emailHtml}}</dd>
+            </div>
+            <div>
+              <dt><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Phone</dt>
+              <dd>{{helper.phoneHtml}}</dd>
+            </div>
+            <div>
+              <dt><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Office</dt>
+              <dd>{{helper.addressHtml}}</dd>
+            </div>
+          </dl>
+
+          <ul class="social-list" aria-label="Social profiles">
+          {{helper.socialLinks}}
+          </ul>
+        </div>
+
+        <!-- Posts to the form endpoint set in src/site.config.json ("formEndpoint"), which emails
+             the enquiry through Google SMTP. Works without JavaScript too (plain POST, then a
+             redirect to thank-you.html). -->
+        <form class="enquiry" id="enquiry" action="{{site.formEndpoint}}" method="post" novalidate data-form="enquiry">
+          <h2 class="enquiry__title">Tell us about your project</h2>
+
+          <input type="hidden" name="form_type" value="enquiry">
+          <input type="hidden" name="elapsed_ms" value="">
+          <input type="hidden" name="industry" value="">
+          <div class="field field--trap" aria-hidden="true">
+            <label for="company_website">Company website</label>
+            <input id="company_website" type="text" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field" data-field>
+            <label class="field__label" for="full_name">Full name</label>
+            <input class="field__control" id="full_name" type="text" name="full_name" autocomplete="name" required maxlength="120" aria-describedby="full_name-error">
+            <p class="field__error" id="full_name-error" aria-live="polite"></p>
+          </div>
+
+          <div class="enquiry__row">
+            <div class="field" data-field>
+              <label class="field__label" for="email">Email address</label>
+              <input class="field__control" id="email" type="email" name="email" autocomplete="email" inputmode="email" required maxlength="190" aria-describedby="email-error">
+              <p class="field__error" id="email-error" aria-live="polite"></p>
+            </div>
+            <div class="field" data-field>
+              <label class="field__label" for="phone">Phone number <span class="optional">(optional)</span></label>
+              <input class="field__control" id="phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="30" aria-describedby="phone-error">
+              <p class="field__error" id="phone-error" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="field" data-field>
+            <label class="field__label" for="service">Service required</label>
+            <select class="field__control" id="service" name="service" required aria-describedby="service-error">
+              <option value="">Choose a service</option>
+              <option value="seo">Search Engine Optimization</option>
+              <option value="social">Social Media Marketing</option>
+              <option value="ads">Performance Marketing (Google Ads, Meta Ads)</option>
+              <option value="brand">Branding &amp; Creative Design</option>
+              <option value="web">Website Development</option>
+              <option value="content">Content, Video &amp; Consulting</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+            <p class="field__error" id="service-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field" data-field>
+            <label class="field__label" for="message">Project description</label>
+            <textarea class="field__control" id="message" name="message" required maxlength="4000" rows="4" aria-describedby="message-error" placeholder="What are you trying to achieve, and by when?"></textarea>
+            <p class="field__error" id="message-error" aria-live="polite"></p>
+          </div>
+
+          <div class="enquiry__foot">
+            <button class="btn btn--primary" type="submit" data-submit>
+              <span class="btn__label">Send enquiry</span>
+              <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </button>
+            <p class="enquiry__privacy">We use these details only to reply to your enquiry. See our <a class="link link--always" href="legal.html#privacy">privacy policy</a>.</p>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 02 / QUESTIONS ============ -->
+    <section class="section theme-light faq" id="questions">
+      <div class="wrap faq__grid">
+        <div class="faq__intro">
+          <p class="label" data-reveal-label><span class="label__num">02</span>/ Before you write</p>
+          <h2 class="h2" data-reveal="lines">Two questions we are asked most.</h2>
+          <a class="cta-link" href="{{helper.whatsappHref}}" {{helper.whatsappAttrs}}>Ask something else on WhatsApp <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item" open>
+            <summary><span>Do you offer customized packages?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Strategies can be tailored to business objectives, target audiences and marketing budgets.</p>
+          </details>
+          <details class="faq__item">
+            <summary><span>When will results appear?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Timelines vary by industry, competition, channel and campaign goals. Paid traffic can start quickly; organic growth usually requires sustained effort.</p>
+          </details>
+        </div>
+      </div>
+    </section>

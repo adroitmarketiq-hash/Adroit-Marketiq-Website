@@ -1,0 +1,27 @@
+{
+  "_readme": "Every replaceable business detail lives here. Edit, then run `node build.js`. Leave a value empty (or as a *_HERE placeholder) until it is verified; the site shows a neutral 'to be added' note instead of a made-up detail.",
+
+  "name": "Adroit Marketiq",
+  "tagline": "Think Digital. Grow Beyond.",
+  "founder": "Ashkar N",
+  "year": 2026,
+
+  "domain": "https://www.YOUR-DOMAIN-HERE.com",
+
+  "_formEndpoint": "Where the forms post. Vercel: /api/send-enquiry (Node function). A PHP host: php/send-enquiry.php",
+  "formEndpoint": "/api/send-enquiry",
+
+  "whatsapp": "WHATSAPP_NUMBER_HERE",
+  "whatsappMessage": "Hello Adroit Marketiq, I would like to talk about growing my brand.",
+
+  "email": "",
+  "phone": "",
+  "address": "",
+
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "linkedin": "",
+    "youtube": ""
+  }
+}

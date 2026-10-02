@@ -1,0 +1,115 @@
+<!-- Interactive industry selector. Image sources are listed in assets/images/ASSETS.md. -->
+<div class="industry-selector" data-industries>
+  <div class="industry-selector__tabs" role="tablist" aria-label="Choose an industry" aria-orientation="vertical">
+    <button class="industry-tab is-active" type="button" role="tab" id="ind-tab-retail" aria-controls="ind-panel-retail" aria-selected="true">Retail</button>
+    <button class="industry-tab" type="button" role="tab" id="ind-tab-real-estate" aria-controls="ind-panel-real-estate" aria-selected="false" tabindex="-1">Real Estate</button>
+    <button class="industry-tab" type="button" role="tab" id="ind-tab-education" aria-controls="ind-panel-education" aria-selected="false" tabindex="-1">Education</button>
+    <button class="industry-tab" type="button" role="tab" id="ind-tab-healthcare" aria-controls="ind-panel-healthcare" aria-selected="false" tabindex="-1">Healthcare</button>
+    <button class="industry-tab" type="button" role="tab" id="ind-tab-travel" aria-controls="ind-panel-travel" aria-selected="false" tabindex="-1">Travel</button>
+    <button class="industry-tab" type="button" role="tab" id="ind-tab-tech" aria-controls="ind-panel-tech" aria-selected="false" tabindex="-1">Tech</button>
+  </div>
+
+  <div class="industry-selector__stage">
+    <article class="industry-panel is-active" role="tabpanel" id="ind-panel-retail" aria-labelledby="ind-tab-retail" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/retail.jpg" srcset="assets/images/industries/retail-800.jpg 800w, assets/images/industries/retail.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="A bright retail shop interior with products on display" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">E-commerce &amp; Retail</h3>
+        <p class="body">Product promotion, online visibility and customer acquisition.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">Performance Marketing</li>
+          <li class="tag">Social Media Marketing</li>
+          <li class="tag">E-commerce Websites</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=retail#enquiry">Plan a retail strategy <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="industry-panel" role="tabpanel" id="ind-panel-real-estate" aria-labelledby="ind-tab-real-estate" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/real-estate.jpg" srcset="assets/images/industries/real-estate-800.jpg 800w, assets/images/industries/real-estate.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="Modern residential architecture against a clear sky" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">Real Estate</h3>
+        <p class="body">Property campaigns, project branding and enquiry generation.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">Lead Generation</li>
+          <li class="tag">Branding &amp; Design</li>
+          <li class="tag">Landing Pages</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=real-estate#enquiry">Plan a property campaign <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="industry-panel" role="tabpanel" id="ind-panel-education" aria-labelledby="ind-tab-education" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/education.jpg" srcset="assets/images/industries/education-800.jpg 800w, assets/images/industries/education.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="Rows of books in a university library" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">Education</h3>
+        <p class="body">Course and institutional promotion.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">SEO</li>
+          <li class="tag">Social Media Marketing</li>
+          <li class="tag">Content</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=education#enquiry">Plan an admissions campaign <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="industry-panel" role="tabpanel" id="ind-panel-healthcare" aria-labelledby="ind-tab-healthcare" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/healthcare.jpg" srcset="assets/images/industries/healthcare-800.jpg 800w, assets/images/industries/healthcare.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="A calm, modern clinic interior" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">Healthcare</h3>
+        <p class="body">Professional digital presence and local SEO.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">Local SEO</li>
+          <li class="tag">Website Development</li>
+          <li class="tag">Branding</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=healthcare#enquiry">Plan a healthcare presence <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="industry-panel" role="tabpanel" id="ind-panel-travel" aria-labelledby="ind-tab-travel" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/travel.jpg" srcset="assets/images/industries/travel-800.jpg 800w, assets/images/industries/travel.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="A resort pool overlooking the sea" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">Hospitality &amp; Travel</h3>
+        <p class="body">Local discovery, social engagement, destination campaigns and enquiries.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">Social Media Marketing</li>
+          <li class="tag">Local SEO</li>
+          <li class="tag">Video</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=travel#enquiry">Plan a destination campaign <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+
+    <article class="industry-panel" role="tabpanel" id="ind-panel-tech" aria-labelledby="ind-tab-tech" tabindex="0">
+      <figure class="industry-panel__media">
+        <img src="assets/images/industries/tech.jpg" srcset="assets/images/industries/tech-800.jpg 800w, assets/images/industries/tech.jpg 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" alt="A product team working at screens in a modern office" loading="lazy" decoding="async">
+      </figure>
+      <div class="industry-panel__text">
+        <h3 class="h3">Startups, B2B &amp; SaaS</h3>
+        <p class="body">Brand positioning, business lead generation, content and product awareness.</p>
+        <p class="industry-panel__label">Where we would start</p>
+        <ul class="tag-list">
+          <li class="tag">Branding</li>
+          <li class="tag">Content</li>
+          <li class="tag">Lead Generation</li>
+        </ul>
+        <a class="cta-link" href="contact.html?industry=tech#enquiry">Plan a product launch <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </article>
+  </div>
+</div>

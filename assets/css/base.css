@@ -1,0 +1,662 @@
+/* ==========================================================================
+   Base: reset, typography, shared primitives (buttons, links, labels, forms)
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+img, svg, canvas, video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: calc(var(--z-cover) + 1);
+  padding: 0.75rem 1.1rem;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--maxw));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.section--tight {
+  padding-block: calc(var(--section) * 0.62);
+}
+
+.section--flush-bottom {
+  padding-bottom: 0;
+}
+
+.theme-dark.section,
+.theme-dark.page-hero {
+  background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+}
+
+.h-hero {
+  font-size: var(--fs-hero);
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+}
+
+.h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.14;
+  letter-spacing: -0.022em;
+}
+
+.h4 {
+  font-size: var(--fs-h4);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--fg-2);
+  max-width: 34em;
+  text-wrap: pretty;
+}
+
+.body {
+  color: var(--fg-2);
+  max-width: 38em;
+  text-wrap: pretty;
+}
+
+.small {
+  font-size: var(--fs-small);
+}
+
+.muted {
+  color: var(--fg-3);
+}
+
+/* Editorial section label: "02 / What we do" */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.label::before {
+  content: '';
+  width: 2.25rem;
+  height: 1px;
+  background: var(--amber);
+  transform-origin: left center;
+}
+
+.label__num {
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Marginal note: a small aside set off to the side of the main column */
+.note {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--fg-3);
+  max-width: 22em;
+  padding-left: 1rem;
+  border-left: 1px solid var(--line-strong);
+}
+
+.pending {
+  color: var(--fg-3);
+  font-style: italic;
+}
+
+/* ---------- Icons ---------- */
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+}
+
+/* ---------- Links ---------- */
+
+.link {
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size var(--dur) var(--ease-out), color var(--dur-fast);
+  padding-bottom: 0.1em;
+}
+
+.link:hover,
+.link:focus-visible {
+  background-size: 100% 1px;
+}
+
+.link--always {
+  background-size: 100% 1px;
+}
+
+.link--always:hover {
+  background-position: 100% 100%;
+  background-size: 0% 1px;
+}
+
+/* Text call-to-action with the growth arrow */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+  padding-block: 0.6em;
+  position: relative;
+}
+
+.cta-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.28);
+  transform-origin: left center;
+  transition: transform var(--dur) var(--ease-out);
+  opacity: 0.55;
+}
+
+.cta-link:hover::after,
+.cta-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.cta-link .icon {
+  color: var(--accent);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.cta-link:hover .icon {
+  transform: translate(3px, -3px);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  --btn-bg: var(--blue);
+  --btn-fg: var(--white);
+  --btn-hover: var(--navy);
+  --btn-hover-fg: var(--white);
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  min-height: 3.5rem;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 2px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-hover);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  color: var(--btn-hover-fg);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.btn__label {
+  display: flex;
+  align-items: center;
+  padding-inline: 1.6rem 1.4rem;
+}
+
+.btn__icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.24);
+  overflow: hidden;
+}
+
+.btn__icon .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.btn:hover .btn__icon .icon,
+.btn:focus-visible .btn__icon .icon {
+  animation: arrow-through 0.6s var(--ease-in-out);
+}
+
+@keyframes arrow-through {
+  0% { transform: translate(0, 0); }
+  45% { transform: translate(160%, -160%); }
+  46% { transform: translate(-160%, 160%); }
+  100% { transform: translate(0, 0); }
+}
+
+.btn--compact {
+  min-height: 2.75rem;
+  font-size: 0.75rem;
+}
+
+.btn--compact .btn__label {
+  padding-inline: 1.15rem 1rem;
+}
+
+.btn--compact .btn__icon {
+  width: 2.75rem;
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--fg);
+  --btn-hover: var(--fg);
+  --btn-hover-fg: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.btn--ghost .btn__icon {
+  border-left-color: var(--line-strong);
+}
+
+.theme-dark .btn--primary {
+  --btn-hover: var(--paper);
+  --btn-hover-fg: var(--navy);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+/* ---------- Tags (service chips) ---------- */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+/* Capability lists: a plus mark, a rule, the item */
+.cap-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.cap-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.cap-list li::before {
+  content: '';
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  translate: 0 -0.05rem;
+  background:
+    linear-gradient(var(--accent), var(--accent)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) center / 1.5px 100% no-repeat;
+}
+
+.cap-list--columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+}
+
+@media (max-width: 479px) {
+  .cap-list--columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Forms ---------- */
+
+.field {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+
+.field__label .optional {
+  font-weight: 400;
+  color: var(--fg-3);
+}
+
+.field__control {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.85rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  font-size: 1.0625rem;
+  color: var(--fg);
+  transition: border-color var(--dur-fast);
+  appearance: none;
+}
+
+.field__control::placeholder {
+  color: var(--fg-3);
+  opacity: 1;
+}
+
+.field__control:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  box-shadow: 0 1px 0 0 var(--accent);
+}
+
+textarea.field__control {
+  min-height: 8.5rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+select.field__control {
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23101C35' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  background-size: 0.75rem;
+  cursor: pointer;
+}
+
+.field__error {
+  min-height: 1.1rem;
+  font-size: 0.8125rem;
+  color: #B3261E;
+}
+
+.field.is-invalid .field__control {
+  border-bottom-color: #B3261E;
+  box-shadow: 0 1px 0 0 #B3261E;
+}
+
+/* Honeypot: hidden from people, visible to bots */
+.field--trap {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  display: none;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(22, 115, 230, 0.07);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.form-status.is-visible {
+  display: flex;
+}
+
+.form-status.is-error {
+  border-left-color: #B3261E;
+  background: rgba(179, 38, 30, 0.07);
+}
+
+/* ---------- Reveal states (only when JS and motion are available) ---------- */
+
+.js:not(.no-motion) [data-reveal='fade'] {
+  opacity: 0;
+}
+
+.js:not(.no-motion) [data-reveal='lines'] {
+  visibility: hidden;
+}
+
+.js:not(.no-motion) [data-reveal='clip'] {
+  clip-path: inset(0 0 100% 0);
+}
+
+.label[data-reveal-label]::before {
+  transition: transform 0.9s var(--ease-out);
+}
+
+.js:not(.no-motion) .label[data-reveal-label]:not(.is-in)::before {
+  transform: scaleX(0);
+}
+
+.split-line {
+  /* room for descenders inside the line mask */
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* If the animation library fails to load, nothing stays hidden. */
+.no-gsap [data-reveal],
+.no-motion [data-reveal] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+}
+
+.no-gsap .label[data-reveal-label]::before,
+.no-motion .label[data-reveal-label]::before {
+  transform: none !important;
+}
+
+/* Lenis smooth scroll (the essentials of lenis.css) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

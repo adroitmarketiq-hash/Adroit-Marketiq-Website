@@ -1,0 +1,6 @@
+# Only send-enquiry.php is meant to be reached from the web.
+<FilesMatch "^config(\.example)?\.php$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes

@@ -1,0 +1,71 @@
+<!--
+{
+  "title": "Our Process | From Discovery to Growth | Adroit Marketiq",
+  "description": "How a project moves through Adroit Marketiq: discover, research and strategize, create and design, launch and execute, monitor and optimize, report and grow.",
+  "nav": "process",
+  "label": "Process",
+  "header": "dark",
+  "scripts": ["assets/js/scene.js"]
+}
+-->
+
+    <!-- ============ HERO ============ -->
+    <section class="page-hero theme-dark">
+      <div class="page-hero__scene" data-scene="field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap page-hero__inner">
+        <p class="label" data-reveal-label><span class="label__num">01</span>/ Our process</p>
+        <h1 class="h1 page-hero__title" data-reveal="lines">From discovery to growth, in six connected steps.</h1>
+        <p class="lead page-hero__lead" data-reveal="fade">Every project follows the same path, so you always know what has been done, what is happening now and what comes next.</p>
+        <p class="note page-hero__aside">Creative thinking without strategy is decoration. Strategy without execution is theory. Execution without measurement is guesswork.</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 / THE JOURNEY ============ -->
+    <section class="section theme-light process" id="journey">
+      <div class="wrap">
+        <header class="process__head">
+          <p class="label" data-reveal-label><span class="label__num">02</span>/ The journey</p>
+          <h2 class="h2" data-reveal="lines">You enter with a challenge. You leave with growth.</h2>
+        </header>
+
+        {{> process-journey}}
+      </div>
+    </section>
+
+    <!-- ============ 03 / THE LOOP ============ -->
+    <section class="section theme-dark loop" id="loop">
+      <div class="wrap loop__grid">
+        <div class="loop__text">
+          <p class="label" data-reveal-label><span class="label__num">03</span>/ What happens next</p>
+          <h2 class="h2" data-reveal="lines">The last step feeds the next plan.</h2>
+          <p class="lead" data-reveal="fade">Monitoring and reporting are not the end of a project. What we learn from live campaigns goes straight back into research and strategy, so each round starts better informed than the last.</p>
+          <ul class="cap-list">
+            <li>Track performance metrics</li>
+            <li>Test creatives</li>
+            <li>Improve campaign efficiency</li>
+            <li>Share transparent reports and insights</li>
+          </ul>
+        </div>
+
+        <figure class="loop__figure" role="img" aria-label="Diagram: the six process steps arranged in a circle, with an arrow from Report and Grow back to Research and Strategize.">
+          <svg viewBox="0 0 440 440" aria-hidden="true">
+            <circle class="loop__ring" cx="220" cy="220" r="150"/>
+            <path class="loop__feedback" pathLength="1" d="M97 152C155 208 285 208 343 152"/>
+            <path class="loop__feedback-head" d="M331.400 155.100L343 152l-3.100 11.600"/>
+            <g class="loop__orbit"><circle cx="220" cy="70" r="6"/></g>
+
+            <g class="loop__node"><circle cx="220" cy="70" r="9"/><text x="220" y="42" text-anchor="middle">01 Discover</text></g>
+            <g class="loop__node"><circle cx="350" cy="145" r="9"/><text x="368" y="141" text-anchor="start">02 Strategize</text></g>
+            <g class="loop__node"><circle cx="350" cy="295" r="9"/><text x="368" y="307" text-anchor="start">03 Create</text></g>
+            <g class="loop__node"><circle cx="220" cy="370" r="9"/><text x="220" y="406" text-anchor="middle">04 Launch</text></g>
+            <g class="loop__node"><circle cx="90" cy="295" r="9"/><text x="72" y="307" text-anchor="end">05 Optimize</text></g>
+            <g class="loop__node loop__node--end"><circle cx="90" cy="145" r="9"/><text x="72" y="141" text-anchor="end">06 Grow</text></g>
+
+            <text class="loop__caption" x="220" y="252" text-anchor="middle">Insights feed</text>
+            <text class="loop__caption" x="220" y="272" text-anchor="middle">the next plan</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    {{> cta-band num="04" title="Step one is a conversation about your business." text="Tell us about your audience, your competitors and what you want the next campaign to achieve. That is where Discover begins." cta="Start a project" href="contact.html#enquiry"}}

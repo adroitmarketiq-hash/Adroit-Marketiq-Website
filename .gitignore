@@ -1,0 +1,11 @@
+# Mail credentials: never commit
+.env
+.env.local
+php/config.php
+
+# Enquiry backups and logs from the PHP handler (personal data)
+storage/*
+!storage/.htaccess
+
+node_modules/
+.vercel/

@@ -1,0 +1,70 @@
+<footer class="site-footer theme-dark" data-site-footer>
+  <div class="wrap">
+    <div class="site-footer__top">
+      <p class="site-footer__tagline">Think Digital.<br>Grow Beyond.</p>
+      <p class="site-footer__statement">Empowering businesses through creative strategies, innovative digital solutions and data-driven marketing.</p>
+      <a class="btn btn--primary" href="contact.html#enquiry" data-magnetic>
+        <span class="btn__label">Start a project</span>
+        <span class="btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="assets/images/brand/logo-reversed.webp" width="475" height="140" alt="Adroit Marketiq" loading="lazy">
+        <p class="site-footer__founder">Founder<br><strong>{{site.founder}}</strong></p>
+      </div>
+
+      <nav class="site-footer__col" aria-label="Quick links">
+        <h2 class="site-footer__heading">Quick links</h2>
+        <ul>
+          <li><a class="link" data-nav="home" href="index.html">Home</a></li>
+          <li><a class="link" data-nav="about" href="about.html">About us</a></li>
+          <li><a class="link" data-nav="process" href="process.html">Our process</a></li>
+          <li><a class="link" data-nav="industries" href="industries.html">Industries</a></li>
+          <li><a class="link" data-nav="work" href="work.html">Portfolio</a></li>
+          <li><a class="link" data-nav="insights" href="insights.html">Blog</a></li>
+          <li><a class="link" data-nav="contact" href="contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Our services">
+        <h2 class="site-footer__heading">Our services</h2>
+        <ul>
+          <li><a class="link" href="services.html#seo">SEO</a></li>
+          <li><a class="link" href="services.html#social">Social Media Marketing</a></li>
+          <li><a class="link" href="services.html#ads">Google Ads</a></li>
+          <li><a class="link" href="services.html#ads">Meta Ads</a></li>
+          <li><a class="link" href="services.html#brand">Branding</a></li>
+          <li><a class="link" href="services.html#web">Website Development</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__col">
+        <h2 class="site-footer__heading">Connect</h2>
+        <ul class="site-footer__contact">
+          <li>{{helper.emailHtml}}</li>
+          <li>{{helper.phoneHtml}}</li>
+          <li>{{helper.addressHtml}}</li>
+        </ul>
+        <ul class="social-list" aria-label="Social profiles">
+          {{helper.socialLinks}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Oversized wordmark: fills in as the footer scrolls into view -->
+  <p class="site-footer__wordmark" aria-hidden="true" data-footer-wordmark>
+    <span class="site-footer__wordmark-line">Adroit Marketiq</span>
+  </p>
+
+  <div class="wrap site-footer__legal">
+    <p>© {{site.year}} {{site.name}}</p>
+    <ul>
+      <li><a class="link" href="legal.html#privacy">Privacy Policy</a></li>
+      <li><a class="link" href="legal.html#terms">Terms &amp; Conditions</a></li>
+      <li><a class="link" href="legal.html#cookies">Cookie Policy</a></li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,87 @@
+<!--
+{
+  "title": "Industries We Serve | Adroit Marketiq",
+  "description": "Digital marketing tailored to e-commerce and retail, real estate, education, healthcare, hospitality and travel, startups, B2B and SaaS.",
+  "nav": "industries",
+  "label": "Industries",
+  "header": "light"
+}
+-->
+
+    <!-- ============ HERO ============ -->
+    <section class="page-hero theme-light industries-hero">
+      <div class="wrap page-hero__inner">
+        <p class="label" data-reveal-label><span class="label__num">01</span>/ Industries we serve</p>
+        <h1 class="h1 page-hero__title" data-reveal="lines">Different customers need a different plan.</h1>
+        <p class="lead page-hero__lead" data-reveal="fade">A property buyer, a student and a software team do not decide the same way. We adapt the marketing offer to each customer segment.</p>
+        <p class="note page-hero__aside">Choose an industry below to see where we would start.</p>
+      </div>
+    </section>
+
+    <!-- ============ 02 / SELECTOR ============ -->
+    <section class="section section--tight theme-white industries" id="selector">
+      <div class="wrap">
+        <h2 class="label industries__label" data-reveal-label><span class="label__num">02</span>/ Choose your industry</h2>
+        {{> industry-selector}}
+      </div>
+    </section>
+
+    <!-- ============ 03 / ALL SEGMENTS ============ -->
+    <section class="section theme-light segments" id="segments">
+      <div class="wrap">
+        <header class="segments__head">
+          <p class="label" data-reveal-label><span class="label__num">03</span>/ Every segment</p>
+          <h2 class="h2" data-reveal="lines">Eight segments, and what each one needs most.</h2>
+        </header>
+
+        <div class="segments__table" role="table" aria-label="Industry segments and their marketing focus">
+          <div class="segments__row segments__row--head" role="row">
+            <span role="columnheader">Segment</span>
+            <span role="columnheader">Marketing focus</span>
+            <span role="columnheader">Usually starts with</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">E-commerce &amp; Retail</span>
+            <span role="cell">Product promotion, online visibility and customer acquisition</span>
+            <span role="cell">Performance Marketing, Social Media</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">Real Estate</span>
+            <span role="cell">Property campaigns, project branding and enquiry generation</span>
+            <span role="cell">Lead Generation, Branding</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">Education</span>
+            <span role="cell">Course and institutional promotion</span>
+            <span role="cell">SEO, Social Media, Content</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">Healthcare</span>
+            <span role="cell">Professional digital presence and local SEO</span>
+            <span role="cell">Local SEO, Website Development</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">Hospitality &amp; Travel</span>
+            <span role="cell">Local discovery, social engagement, destination campaigns and enquiries</span>
+            <span role="cell">Social Media, Local SEO, Video</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">Startups</span>
+            <span role="cell">Brand positioning</span>
+            <span role="cell">Branding, Website Development</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">B2B</span>
+            <span role="cell">Business lead generation</span>
+            <span role="cell">Performance Marketing, Content</span>
+          </div>
+          <div class="segments__row" role="row">
+            <span class="segments__name" role="cell">SaaS</span>
+            <span role="cell">Content and product awareness</span>
+            <span role="cell">Content, SEO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> cta-band num="04" title="Discover a marketing strategy tailored to your industry." text="Do not see your sector here? The process is the same: we start by understanding your business, your audience and your competitors." cta="Talk to us" href="contact.html#enquiry"}}

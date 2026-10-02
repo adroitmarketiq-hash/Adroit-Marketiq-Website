@@ -1,0 +1,61 @@
+<figure class="viz viz--ads" data-viz role="img" aria-label="Illustration: traffic from Google Ads and Meta Ads narrowing from impressions to clicks to conversions, with creatives being tested.">
+  <div class="viz__stage" aria-hidden="true">
+    <div class="viz__art">
+      <svg class="funnel" viewBox="0 0 400 300">
+        <defs>
+          <g id="funnel-dropped">
+            <path d="M92 72C142 72 150 110 190 110"/>
+            <path d="M92 82C142 82 150 128 190 128"/>
+            <path d="M92 202C142 202 150 154 190 154"/>
+            <path d="M92 212C142 212 150 172 190 172"/>
+            <path d="M92 222C142 222 150 190 190 190"/>
+            <path d="M92 77C142 77 150 119 190 119C232 119 248 132 290 132"/>
+            <path d="M92 92C142 92 150 146 190 146C232 146 248 150 290 150"/>
+            <path d="M92 217C142 217 150 181 190 181C232 181 248 168 290 168"/>
+          </g>
+          <g id="funnel-converted">
+            <path d="M92 87C142 87 150 137 190 137C232 137 248 141 290 141C316 141 326 150 350 150"/>
+            <path d="M92 207C142 207 150 163 190 163C232 163 248 159 290 159C316 159 326 150 350 150"/>
+          </g>
+        </defs>
+
+        <path class="funnel__gate" d="M190 46V254M290 46V254"/>
+        <text class="funnel__stage" x="140" y="34" text-anchor="middle">Impressions</text>
+        <text class="funnel__stage" x="240" y="34" text-anchor="middle">Clicks</text>
+        <text class="funnel__stage" x="338" y="34" text-anchor="middle">Conversions</text>
+
+        <use class="funnel__base" href="#funnel-dropped"/>
+        <use class="funnel__base" href="#funnel-converted"/>
+        <use class="funnel__flow funnel__flow--dropped" href="#funnel-dropped"/>
+        <use class="funnel__flow funnel__flow--converted" href="#funnel-converted"/>
+
+        <g class="funnel__ends">
+          <circle cx="190" cy="110" r="2"/><circle cx="190" cy="128" r="2"/><circle cx="190" cy="154" r="2"/>
+          <circle cx="190" cy="172" r="2"/><circle cx="190" cy="190" r="2"/>
+          <circle cx="290" cy="132" r="2"/><circle cx="290" cy="150" r="2"/><circle cx="290" cy="168" r="2"/>
+        </g>
+
+        <g class="funnel__source">
+          <rect x="10" y="62" width="82" height="40"/>
+          <text x="51" y="86" text-anchor="middle">Google Ads</text>
+          <rect x="10" y="192" width="82" height="40"/>
+          <text x="51" y="216" text-anchor="middle">Meta Ads</text>
+        </g>
+
+        <g class="funnel__target">
+          <circle class="funnel__pulse" cx="364" cy="150" r="14"/>
+          <circle cx="364" cy="150" r="14"/>
+          <circle cx="364" cy="150" r="7"/>
+          <circle class="funnel__bull" cx="364" cy="150" r="2.6"/>
+        </g>
+      </svg>
+
+      <div class="ads-test">
+        <span class="ads-test__label">Testing creatives</span>
+        <span class="ads-test__option ads-test__option--a">A</span>
+        <span class="ads-test__option ads-test__option--b">B</span>
+      </div>
+    </div>
+  </div>
+  <figcaption class="viz__caption">Fig. 3 <span>Campaign paths, from impression to conversion</span></figcaption>
+</figure>
