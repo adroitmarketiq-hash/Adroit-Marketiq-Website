@@ -728,53 +728,112 @@ a.social-link:focus-visible {
 
 /* ---------- Loader ---------- */
 
+/* Everything is stacked on the exact centre of the screen and swaps in place:
+   mark (waiting) → 3D growth chart → logo. The meter sits on its own line below. */
+
 .loader {
   position: fixed;
   inset: 0;
   z-index: var(--z-cover);
   display: none;
-  place-items: center;
-  background: var(--paper);
+  background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+  color: var(--d-ink);
+  overflow: hidden;
 }
 
 .is-loading .loader {
-  display: grid;
+  display: block;
   /* failsafe: never trap the visitor behind the loader if scripts fail */
-  animation: cover-failsafe 0.4s ease 3.2s forwards;
+  animation: cover-failsafe 0.4s ease 5s forwards;
 }
 
-.loader__inner {
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
+.loader__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.loader__mark,
+.loader__lockup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
 }
 
 .loader__mark {
-  width: clamp(3.25rem, 6vw, 4.5rem);
+  width: clamp(3.75rem, 7vw, 5rem);
   height: auto;
+  animation: loader-mark 0.6s var(--ease-out) backwards;
 }
 
-.loader__line {
-  width: clamp(2.5rem, 9vw, 7rem);
-  height: 1px;
-  background: var(--navy);
+@keyframes loader-mark {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.loader__lockup {
+  opacity: 0;
+}
+
+.loader__logo {
+  width: auto;
+  max-width: 78vw;
+  height: clamp(3.75rem, 10vw, 6.75rem);
+}
+
+/* Progress block: one fixed-width unit on the centre axis.
+   The step name sits at the left end of the line and the percentage at the right end,
+   so the block stays symmetric whatever the text says. */
+.loader__meter {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(3rem, 12vh, 7rem);
+  translate: -50% 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  row-gap: 0.7rem;
+  width: clamp(12rem, 26vw, 18rem);
+}
+
+.loader__step {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--d-ink-2);
+}
+
+.loader__count {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--d-ink);
+}
+
+.loader__track {
+  grid-column: 1 / -1;
+  position: relative;
+  height: 2px;
+  background: rgba(245, 247, 251, 0.16);
+  overflow: hidden;
+}
+
+.loader__fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
   transform: scaleX(0);
   transform-origin: left center;
-}
-
-.loader__name {
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--navy);
-}
-
-.loader__name span {
-  display: block;
-  transform: translateY(110%);
 }
 
 @keyframes cover-failsafe {

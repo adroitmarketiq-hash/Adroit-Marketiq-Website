@@ -66,29 +66,99 @@
     }
   }
 
-  /* ---------- Loader: A mark → line → name → lift ---------- */
+  /* ---------- Loader: mark → growth chart → logo → lift ----------
+     The 3D growth chart lives in loader-scene.js (an ES module that loads Three.js).
+     It has a short window to claim the loader; if it does not (slow network, no WebGL),
+     the simple sequence below runs instead. Both end with the same logo reveal. */
+
+  var LOADER_CLAIM_WINDOW = 1100; // ms to wait for the 3D sequence before falling back
 
   function runLoader() {
     if (!root.classList.contains('is-loading')) return false;
     var loader = document.querySelector('.loader');
-    var finish = function () {
+    var cleanup = function () {
       root.classList.remove('is-loading');
       store('am:seen', '1');
     };
 
     if (!motion || !loader) {
-      finish();
+      cleanup();
       fireReady();
       return true;
     }
 
-    gsap
-      .timeline({ onComplete: finish })
-      .fromTo('.loader__mark', { scale: 0.72, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' })
-      .fromTo('.loader__line', { scaleX: 0 }, { scaleX: 1, duration: 0.38, ease: 'power2.inOut' }, '-=0.12')
-      .fromTo('.loader__name span', { yPercent: 110 }, { yPercent: 0, duration: 0.42, ease: 'power3.out' }, '-=0.18')
-      .add(fireReady, '+=0.22')
-      .to(loader, { yPercent: -100, duration: 0.6, ease: 'power3.inOut' });
+    var mark = loader.querySelector('.loader__mark');
+    var lockup = loader.querySelector('.loader__lockup');
+    var meter = loader.querySelector('.loader__meter');
+    var fill = loader.querySelector('.loader__fill');
+    var count = loader.querySelector('.loader__count');
+    var claimed = false;
+    var finished = false;
+
+    // One number drives both the line and the percentage, so they can never disagree.
+    var progress = { value: 0 };
+    function renderProgress() {
+      var value = Math.max(0, Math.min(100, progress.value));
+      fill.style.transform = 'scaleX(' + value / 100 + ')';
+      count.textContent = Math.round(value) + '%';
+    }
+    // While the 3D library loads, the count creeps forward so the screen is never static.
+    var creep = gsap.to(progress, {
+      value: 22,
+      duration: LOADER_CLAIM_WINDOW / 1000,
+      ease: 'power1.out',
+      onUpdate: renderProgress,
+    });
+
+    // Final beat: the logo wipes in on the centre, then the cover lifts off the page.
+    function finish() {
+      if (finished) return;
+      finished = true;
+      mark.style.animation = 'none';
+      gsap
+        .timeline({ onComplete: cleanup })
+        .to(mark, { opacity: 0, scale: 0.85, duration: 0.2, overwrite: true }, 0)
+        .to(meter, { opacity: 0, duration: 0.25 }, 0)
+        .fromTo(
+          lockup,
+          { opacity: 1, clipPath: 'inset(0% 100% 0% 0%)' },
+          { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power3.inOut' },
+          0.05
+        )
+        .add(fireReady, '+=0.2')
+        .to(loader, { yPercent: -100, duration: 0.6, ease: 'power3.inOut' });
+    }
+
+    function simpleSequence() {
+      creep.kill();
+      gsap.to(progress, { value: 100, duration: 0.8, ease: 'power2.inOut', onUpdate: renderProgress, onComplete: finish });
+    }
+
+    var fallbackTimer = setTimeout(function () {
+      if (claimed) return;
+      claimed = true;
+      simpleSequence();
+    }, LOADER_CLAIM_WINDOW);
+
+    AM.loader = {
+      /* Called by loader-scene.js once Three.js is ready. Returns null if the fallback already started. */
+      claim: function () {
+        if (claimed) return null;
+        claimed = true;
+        clearTimeout(fallbackTimer);
+        creep.kill();
+        return {
+          finish: finish,
+          fail: simpleSequence,
+          /* progress() reads the current percentage; progress(n) sets it */
+          progress: function (value) {
+            if (value === undefined) return progress.value;
+            progress.value = value;
+            renderProgress();
+          },
+        };
+      },
+    };
     return true;
   }
 

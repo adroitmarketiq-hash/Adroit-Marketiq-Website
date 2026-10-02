@@ -1,9 +1,17 @@
-<!-- Brand loader: A mark → expanding line → name. Shown once per session, about a second. -->
+<!-- Brand loader, shown once per session.
+     Wait state: the A mark, centred. Then a Three.js growth chart builds through the six
+     process steps (assets/js/loader-scene.js), the logo wipes in, and the cover lifts.
+     If WebGL or the 3D library is unavailable, core.js runs a simpler version of the same ending. -->
 <div class="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <img class="loader__mark" src="assets/images/brand/logo-mark.webp" width="430" height="360" alt="">
-    <span class="loader__line"></span>
-    <span class="loader__name"><span>Adroit Marketiq</span></span>
+  <canvas class="loader__canvas"></canvas>
+  <img class="loader__mark" src="assets/images/brand/logo-mark.webp" width="430" height="360" alt="">
+  <div class="loader__lockup">
+    <img class="loader__logo" src="assets/images/brand/logo-reversed.webp" width="475" height="140" alt="">
+  </div>
+  <div class="loader__meter">
+    <span class="loader__step">Loading</span>
+    <span class="loader__count">0%</span>
+    <span class="loader__track"><i class="loader__fill"></i></span>
   </div>
 </div>
 
